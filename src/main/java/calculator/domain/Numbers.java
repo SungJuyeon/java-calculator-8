@@ -25,4 +25,12 @@ public class Numbers {
         }
         return new Numbers(numbers);
     }
+
+    public int sum() {
+        int sum = 0;
+        for(int n : numbers) {
+            sum += n;
+        }
+        return sum;
+    }
 }

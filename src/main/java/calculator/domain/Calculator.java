@@ -25,6 +25,6 @@ public class Calculator {
         String[] expressionNumbers = extractExpression.split(customDelimiter);
         Numbers numbers = Numbers.from(expressionNumbers);
 
-        return 0;
+        return numbers.sum();
     }
 }

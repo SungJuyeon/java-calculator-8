@@ -7,9 +7,11 @@ import calculator.view.OutputHandler;
 
 public class CalculatorController {
     private InputHandler inputHandler;
+    private OutputHandler outputHandler;
 
     public CalculatorController() {
         inputHandler = new InputHandler();
+        outputHandler = new OutputHandler();
     }
 
     public void start() {
@@ -17,5 +19,6 @@ public class CalculatorController {
         Calculator calc = new Calculator(userInput);
 
         int output = calc.calculate();
+        outputHandler.printOutput(output);
     }
 }

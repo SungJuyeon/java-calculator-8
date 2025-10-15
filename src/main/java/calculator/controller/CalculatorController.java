@@ -16,5 +16,6 @@ public class CalculatorController {
         String userInput = inputHandler.userInput();
         Calculator calc = new Calculator(userInput);
 
+        int output = calc.calculate();
     }
 }

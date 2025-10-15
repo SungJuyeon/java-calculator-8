@@ -15,12 +15,18 @@ outputHandler : 결과 출력
 
 customDelimiter : 구분자 처리
 
+Calculator : 계산
+
 ### Who (누가 처리할 것인가)
 
-InputHandler : 입력 처리
+InputHandler : 사용자 입력 view
 
-OutputHandler : 출력 처리
+OutputHandler : 결과 출력 view
 
-DecisionDelimiter : 커스텀 구분자, 구분자 처리
+Calculator : 계산 과정
 
-Number : 숫자 합 계산
+DecisionDelimiter : 구분자 판단
+
+Numbers : 합산
+
+NumberValidator : 잘못된 숫자인지 판단

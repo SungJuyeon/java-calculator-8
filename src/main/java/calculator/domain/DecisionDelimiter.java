@@ -24,7 +24,7 @@ public class DecisionDelimiter {
     }
 
     public String extractExpression() {
-        if(input.startsWith(START_CUSTOM_DELIMITER)) {
+        if(!input.startsWith(START_CUSTOM_DELIMITER)) {
             return input;
         }
         Pattern pattern = Pattern.compile(CUSTOM_DELIMITER, Pattern.DOTALL);

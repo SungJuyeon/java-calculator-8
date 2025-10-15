@@ -17,10 +17,10 @@ customDelimiter : 구분자 처리
 
 ### Who (누가 처리할 것인가)
 
-InputHandler
+InputHandler : 입력 처리
 
-OutputHandler
+OutputHandler : 출력 처리
 
-DecisionDelimiter
+DecisionDelimiter : 커스텀 구분자, 구분자 처리
 
-Number
+Number : 숫자 합 계산

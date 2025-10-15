@@ -16,7 +16,7 @@ public class Calculator {
 
         DecisionDelimiter delimiter = new DecisionDelimiter(input);
         String customDelimiter = delimiter.customDelimiter();
-
+        String extractExpression = delimiter.extractExpression();
         return 0;
     }
 }

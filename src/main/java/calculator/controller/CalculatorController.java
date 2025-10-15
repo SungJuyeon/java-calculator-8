@@ -1,6 +1,9 @@
 package calculator.controller;
 
+import calculator.domain.Calculator;
+import calculator.domain.DecisionDelimiter;
 import calculator.view.InputHandler;
+import calculator.view.OutputHandler;
 
 public class CalculatorController {
     private InputHandler inputHandler;
@@ -10,7 +13,8 @@ public class CalculatorController {
     }
 
     public void start() {
-        String input = inputHandler.userInput();
+        String userInput = inputHandler.userInput();
+        Calculator calc = new Calculator(userInput);
 
     }
 }

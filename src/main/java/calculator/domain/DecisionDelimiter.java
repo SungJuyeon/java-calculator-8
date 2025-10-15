@@ -1,0 +1,25 @@
+package calculator.domain;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class DecisionDelimiter {
+    private static final String START_CUSTOM_DELIMITER = "//";
+    private static final String DEFAULT_DELIMITER = "[,:]";
+    private static final String CUSTOM_DELIMITER = "^//(.+)\\\\n(.*)$";
+    private final String input;
+
+    public DecisionDelimiter(String input) {
+        this.input = input;
+    }
+
+    public String customDelimiter() {
+        String delimiter = DEFAULT_DELIMITER;
+        if(input.startsWith(START_CUSTOM_DELIMITER)) {
+            Pattern pattern = Pattern.compile(CUSTOM_DELIMITER, Pattern.DOTALL);
+            Matcher matcher = pattern.matcher(input);
+            delimiter = matcher.find() ? DEFAULT_DELIMITER + "|" + matcher.group(1) : DEFAULT_DELIMITER;
+        }
+        return delimiter;
+    }
+}

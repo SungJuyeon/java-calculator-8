@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class DecisionDelimiter {
     private static final String START_CUSTOM_DELIMITER = "//";
     private static final String DEFAULT_DELIMITER = "[,:]";
-    private static final String CUSTOM_DELIMITER = "^//(.+)\\\\n(.*)$";
+    private static final String CUSTOM_DELIMITER = "^//(.*)\\\\n(.*)$";
     private final String input;
 
     public DecisionDelimiter(String input) {
@@ -18,7 +18,7 @@ public class DecisionDelimiter {
         if(input.startsWith(START_CUSTOM_DELIMITER)) {
             Pattern pattern = Pattern.compile(CUSTOM_DELIMITER, Pattern.DOTALL);
             Matcher matcher = pattern.matcher(input);
-            delimiter = matcher.find() ? DEFAULT_DELIMITER + "|" + matcher.group(1) : DEFAULT_DELIMITER;
+            delimiter = matcher.find() ? DEFAULT_DELIMITER + "|" + Pattern.quote(matcher.group(1)) : DEFAULT_DELIMITER;
         }
         return delimiter;
     }
@@ -29,6 +29,10 @@ public class DecisionDelimiter {
         }
         Pattern pattern = Pattern.compile(CUSTOM_DELIMITER, Pattern.DOTALL);
         Matcher matcher = pattern.matcher(input);
-        return matcher.find() ? matcher.group(2) : "";
+        if(matcher.find()) {
+            return matcher.group(2);
+        }
+        int newlineIndex = input.indexOf('\n');
+        return newlineIndex >= 0 ? input.substring(newlineIndex + 1) : "";
     }
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Numbers {
-    private List<Integer> numbers;
+    private final List<Integer> numbers;
 
     public Numbers(List<Integer> numbers) {
         this.numbers = numbers;
@@ -27,10 +27,8 @@ public class Numbers {
     }
 
     public int sum() {
-        int sum = 0;
-        for(int n : numbers) {
-            sum += n;
-        }
-        return sum;
+        return numbers.stream()
+                .mapToInt(Integer::intValue)
+                .sum();
     }
 }

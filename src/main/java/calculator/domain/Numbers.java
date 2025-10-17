@@ -7,7 +7,7 @@ public class Numbers {
     private final List<Integer> numbers;
 
     public Numbers(List<Integer> numbers) {
-        this.numbers = numbers;
+        this.numbers = new ArrayList<>(numbers);
     }
 
     protected static Numbers from(String[] expressionNumbers) {

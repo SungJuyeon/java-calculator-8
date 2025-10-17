@@ -1,8 +1,5 @@
 package calculator.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Calculator {
     private final String input;
 
